@@ -21,8 +21,8 @@ def upload():
             os.makedirs(absolute_path)
         save_file_name = os.path.join(absolute_path,f.filename).replace('\\','/') #文件存储路径（包含文件名）
         f.save(save_file_name)
-        url_path = os.path.join('http://127.0.0.1:5000/',file_path,f.filename).replace('\\','/')
+        url_path = os.path.join('http://YOURIP:5000/',file_path,f.filename).replace('\\','/')
         return json.dumps({'code':200,'url':url_path},ensure_ascii=False)
 
 
-app.run(port='5000',debug=True)
+app.run(host='0.0.0.0', port='5000',debug=True)
